@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>質問フォーム</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+label {
+  font-size: 14px;
+}
+input, textarea, button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 14px;
+}
+button {
+  background-color: #ff0000;
+  color: #fff;
+  border-radius: 5px;
+}
+</style>
+</head>
+<body>
+<form id="question-form">
+  <label>お名前:<input id="name" required /></label><br/>
+  <label>メールアドレスまたは電話番号:<input id="contact" required /></label><br/>
+  <label>質問内容:<textarea id="question" required></textarea></label><br/>
+  <button type="submit">送信</button>
+</form>
+
+<script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+<script>
+const LIFF_ID = "https://liff.line.me/2007106741-XJ5YQg7j";           // ★取得後、ここを書き換え
+const GAS_URL = "https://script.google.com/macros/s/AKfycbxAnu2oh5GpOPBb1oJGYTra4pLv9kY2HCEfrrM4S-PSaGYiiOX9KilKkJc8JqdeRmMC/exec";     // ★取得後、ここを書き換え
+
+async function initializeLiff() {
+  try {
+    await liff.init({ liffId: LIFF_ID });
+    console.log("LIFF初期化完了");
+  } catch (error) {
+    alert("LIFF初期化エラー: " + error);
+  }
+}
+initializeLiff();
+
+document.getElementById("question-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const contact = document.getElementById("contact").value.trim();
+  const question = document.getElementById("question").value.trim();
+
+  const payload = { name, contact, question };
+  try {
+    const response = await fetch(GAS_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    const result = await response.json();
+
+    if (result.status === "success") {
+      alert("送信完了しました！");
+      if (liff.isInClient()) {
+        liff.closeWindow();
+      }
+    } else {
+      alert("エラーが発生しました: " + result.message);
+    }
+  } catch (error) {
+    alert("送信エラー: " + error);
+  }
+});
+</script>
+</body>
+</html>
