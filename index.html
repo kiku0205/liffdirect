@@ -1,80 +1,371 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>質問フォーム</title>
-<style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
-label {
-  font-size: 14px;
-}
-input, textarea, button {
-  width: 100%;
-  padding: 10px;
-  margin: 5px 0;
-  font-size: 14px;
-}
-button {
-  background-color: #ff0000;
-  color: #fff;
-  border-radius: 5px;
-}
-</style>
+
+    .section-title {
+      background-color: #ff0000;
+      padding: 10px;
+      font-size: 20px;
+      font-weight: bold;
+      color: white;
+      border-radius: 8px;
+    }
+    .qa-container {
+      display: flex;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+    .qa-label {
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      color: white;
+    }
+    .qa-label.q {
+      background-color: #ff0000;
+    }
+    .qa-label.a {
+      background-color: white;
+      color: #ff0000;
+      border: 1px solid #ff0000;
+    }
+    .qa-content {
+      margin-left: 10px;
+      font-size: 14px;
+      max-width: calc(100% - 50px);
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      font-size: 14px;
+    }
+    button {
+      background-color: #ff0000;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #cc0000;
+    }
+    label {
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-<form id="question-form">
-  <label>お名前:<input id="name" required /></label><br/>
-  <label>メールアドレスまたは電話番号:<input id="contact" required /></label><br/>
-  <label>質問内容:<textarea id="question" required></textarea></label><br/>
-  <button type="submit">送信</button>
-</form>
+  <div class="container">
+  <div class="section-title">入会について</div>
 
-<script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
-<script>
-const LIFF_ID = "2007106741-XJ5YQg7j";           // ★取得後、ここを書き換え
-const GAS_URL = "https://script.google.com/macros/s/AKfycbwwEVQtA6hEkoVMR-Ly2uKS9bX685Za7a08yrSSun_JOoA9R--RmSkWoUl5bePn2stU/exec";     // ★取得後、ここを書き換え
+  <div class="qa-container">
+    <div class="qa-label q">Q</div>
+    <div class="qa-content">
+      <h5>入会手続きに必要なものは何ですか？</h5>
+    </div>
+  </div>
 
-async function initializeLiff() {
-  try {
-    await liff.init({ liffId: LIFF_ID });
-    console.log("LIFF初期化完了");
-  } catch (error) {
-    alert("LIFF初期化エラー: " + error);
+  <div class="qa-container">
+    <div class="qa-label a">A</div>
+    <div class="qa-content">
+      スマートフォン<br>
+      クレジットカード【VISA・MASTER・JCB・AMEX・Diners】<br>
+      <br>
+      ※コースにより金額が異なりますのでご確認ください<br>
+      ※キャンペーン内容によって金額は変わります<br>
+    </div>
+  </div>
+
+  <div class="qa-container">
+    <div class="qa-label q">Q</div>
+    <div class="qa-content">
+      <h5>入会前にジムを見学するには？</h5>
+    </div>
+  </div>
+
+  <div class="qa-container">
+    <div class="qa-label a">A</div>
+    <div class="qa-content">
+      見学にはご予約が必要です。<br>
+      LINE・メール・電話からご予約の上、ご来店ください。<br>
+      <br>
+      不安に感じていることはお気軽にスタッフまでお尋ねください！<br>
+    </div>
+  </div>
+
+  <div class="section-title">退会・休会について</div>
+
+  <div class="qa-container">
+    <div class="qa-label q">Q</div>
+    <div class="qa-content">
+      <h5>退会はできますか？</h5>
+    </div>
+  </div>
+
+  <div class="qa-container">
+    <div class="qa-label a">A</div>
+    <div class="qa-content">
+      アプリからのみ手続き可能です。<br>
+      電話・メールでは承っておりませんので、<br>
+      必ずご自身でアプリより手続きお願い致します。<br>
+      <br>
+      《退会に関する注意点》<br>
+      ・月会費の支払日前日までに、アプリにて退会手続きを行ってください。<br>
+         例）月会費の支払日が「4月2日」の場合ですと、「4月1日」までに退会手続きが必要です。<br>
+      <br>
+    《退会方法》<br>
+    1.右上のメニュー（3本線）タップし、「マイページ」を選択<br>
+    2.「マイプロフィール」を選択<br>
+    3.「購読を見る」を選択<br>
+    4.退会する商品を選択し、「購読詳細調査」をタップ<br>
+    5.下にスクロールし、「購読をキャンセル」を選択<br>
+    </div>
+  </div>
+
+    <div class="qa-container">
+    <div class="qa-label q">Q</div>
+    <div class="qa-content">
+      <h5>休会はできますか？</h5>
+    </div>
+  </div>
+
+  <div class="qa-container">
+    <div class="qa-label a">A</div>
+    <div class="qa-content">
+      アプリからのみ手続き可能です。<br>
+      電話・メールでは承っておりませんので、<br>
+      必ずご自身でアプリよりお手続きお願い致します。<br>
+      <br>
+      《休会に関する注意点》<br>
+      ・休会期間は最大3ヵ月まで可能です。<br>
+      ・休会は1回限りご利用いただけます。<br>
+      ・休会費は無料です。<br>
+      ・月会費の支払日前日までに、アプリにて休会手続きを行ってください。<br>
+        例）月会費の支払日が「4月2日」の場合ですと、「4月1日」までに休会手続きが必要です。<br>
+        <br>
+      《休会方法》<br>
+       1.右上のメニュー（3本線）をタップし、「マイページ」を選択<br>
+       2.「マイプロフィール」を選択<br>
+       3.「マイ製品」を選択<br>
+       4.休会する商品を選択し、製品の「製品の詳細」をタップ<br>
+       5.下にスクロールし、「中断」を選択し→中断の開始日・終了日を入力<br>
+    </div>
+  </div>
+
+  <div class="section-title">施設について</div>
+
+  <div class="qa-container">
+    <div class="qa-label q">Q</div>
+    <div class="qa-content">
+      <h5>営業時間・休館日は？</h5>
+    </div>
+  </div>
+
+  <div class="qa-container">
+    <div class="qa-label a">A</div>
+    <div class="qa-content">
+      営業時間は7:00 – 22:30(完全退館)になります。<br>
+      休館日は、毎月15, 30日, 年末年始となります。<br>
+    </div>
+  </div>
+
+  <div class="qa-container">
+    <div class="qa-label q">Q</div>
+    <div class="qa-content">
+      <h5>シャワーなどはありますか？</h5>
+    </div>
+  </div>
+
+  <div class="qa-container">
+    <div class="qa-label a">A</div>
+    <div class="qa-content">
+      女性用更衣室にはシャワールーム8部屋とパウダールーム、<br>
+      男性用更衣室にはシャワールーム2部屋を完備しております。<br>
+      <br>
+      シャンプーやボディーソープは用意していませんので<br>
+      ご利用の方はご自身でご持参ください。<br>
+      お忘れの場合は、小袋タイプのものを販売しておりますので<br>
+      受付までお声掛けください。<br>
+    </div>
+  </div>
+
+  <div class="qa-container">
+    <div class="qa-label q">Q</div>
+    <div class="qa-content">
+      <h5>ジムでの撮影はできますか？</h5>
+    </div>
+  </div>
+
+  <div class="qa-container">
+    <div class="qa-label a">A</div>
+    <div class="qa-content">
+      ジム内での撮影は可能です。<br>
+      また、SNS等での拡散も可能です。<br>
+      但し、撮影の際は他のお客様や<br>
+      スタッフ映り込まないよう十分にご配慮ください。<br>
+    </div>
+  </div>
+
+  <div class="qa-container">
+    <div class="qa-label q">Q</div>
+    <div class="qa-content">
+      <h5>ロッカーはありますか？</h5>
+    </div>
+  </div>
+
+  <div class="qa-container">
+    <div class="qa-label a">A</div>
+    <div class="qa-content">
+      オープンロッカーがございます。<br>
+      貴重品はご自身で管理をお願いします。<br>
+      <br>
+      オプションにて施錠付きのレンタルロッカー<br>
+      をご用意しております。（月額1,100円）<br>
+      数には限りがございますので、予めご了承ください。<br>
+    </div>
+  </div>
+
+  <div class="qa-container">
+    <div class="qa-label q">Q</div>
+    <div class="qa-content">
+      <h5>土足での施設利用はできますか？</h5>
+    </div>
+  </div>
+
+  <div class="qa-container">
+    <div class="qa-label a">A</div>
+    <div class="qa-content">
+      基本的には土足でご利用いただけます。<br>
+      上履きは必須ではございません。<br>
+      <br>
+      ただし、一般的に運動に適さない靴<br>
+     （サンダル、ゴム草履、ヒール、<br>
+      ブーツなど）や裸足での施設利用は<br>
+      禁止とさせていただきます。<br>
+    </div>
+  </div>
+
+  <div class="section-title">サービス</div>
+
+  <div class="qa-container">
+    <div class="qa-label q">Q</div>
+    <div class="qa-content">
+      <h5>どのようなレッスンプログラムがありますか？</h5>
+    </div>
+  </div>
+
+  <div class="qa-container">
+    <div class="qa-label a">A</div>
+    <div class="qa-content">
+          新しい種目を知りたい方や運動強度を高めたい方におすすめな<br>
+          パーソナルトレーニングとボディメンテナンスや腰痛等の改善に<br>
+          おすすめなボディケアがございます。<br>
+          どちらも一回15分と45分のチケットをご用意しております。<br>
+    </div>
+  </div>
+
+  <div class="qa-container">
+    <div class="qa-label q">Q</div>
+    <div class="qa-content">
+      <h5>ビジター利用はできますか？</h5>
+    </div>
+  </div>
+
+  <div class="qa-container">
+    <div class="qa-label a">A</div>
+    <div class="qa-content">
+      現在、ビジター利用（都度利用）は行っておりませんが、<br>  
+      体験利用を1,100円（税込）でご案内しております。<br>
+      体験は原則お一人様1回限りとなっており、<br>
+      6か月後に再度体験いただくことが可能です。<br>
+    </div>
+  </div>
+
+  <div class="section-title">質問フォーム</div>
+  <form id="question-form">
+    <label for="name">お名前:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="contact">メールアドレスまたは電話番号:</label>
+    <input type="text" id="contact" name="contact" required placeholder="例: example@email.com または 090-1234-5678" />
+
+    <label for="question">質問内容:</label>
+    <textarea id="question" name="question" rows="5" required></textarea>
+
+    <button type="submit">送信</button>
+  </form>
+  </div>
+
+ <script>
+  
+  function validateContact(contact) {
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phonePattern = /^\d{2,4}-?\d{2,4}-?\d{3,4}$/;
+    return emailPattern.test(contact) || phonePattern.test(contact);
   }
-}
-initializeLiff();
 
-document.getElementById("question-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
+  document.getElementById('question-form').onsubmit = function(e) {
+    e.preventDefault();
 
-  const name = document.getElementById("name").value.trim();
-  const contact = document.getElementById("contact").value.trim();
-  const question = document.getElementById("question").value.trim();
+    const name = document.getElementById('name').value.trim();
+    const contact = document.getElementById('contact').value.trim();
+    const question = document.getElementById('question').value.trim();
 
-  const payload = { name, contact, question };
-  try {
-    const response = await fetch(GAS_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-    const result = await response.json();
-
-    if (result.status === "success") {
-      alert("送信完了しました！");
-      if (liff.isInClient()) {
-        liff.closeWindow();
-      }
-    } else {
-      alert("エラーが発生しました: " + result.message);
+    // すべての項目チェック
+    if (!name || !contact || !question) {
+      alert('すべての項目を入力してください。');
+      return;
     }
-  } catch (error) {
-    alert("送信エラー: " + error);
-  }
-});
+
+    // メール or 電話番号の形式チェック
+    if (!validateContact(contact)) {
+      alert('正しいメールアドレスまたは電話番号を入力してください。');
+      return;
+    }
+
+    const url = 'https://script.google.com/macros/s/AKfycbyZVGAGpAzLe85t7iyCdMBjG4YcnQLKN0e5ujv6IANuEF-Pyf3bN8dcwdsGnt9xZMYo/exec';
+
+    fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, contact, question })
+    })
+    .then(response => response.text())
+    .then(result => {
+      console.log(result);
+      alert('送信が完了しました！');
+      document.getElementById('question-form').reset();
+    })
+    .catch(error => {
+      console.error(error);
+      alert('送信に失敗しました。');
+    });
+  };
 </script>
+
+
 </body>
 </html>
